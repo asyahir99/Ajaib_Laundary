@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "612284790520",
+    "project_id": "ajaib-laundary",
+    "storage_bucket": "ajaib-laundary.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:612284790520:android:dc2e54fb3c0cfbedd7ad0d",
+        "android_client_info": {
+          "package_name": "com.ajaibBoy.ajaibLaundary"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "612284790520-j0b0llo7j8qb4agukoshn2v9n69unmon.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDy6wm72iq2IpVD1iEXWCwROK3XV7JIlcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "612284790520-j0b0llo7j8qb4agukoshn2v9n69unmon.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
