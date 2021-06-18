@@ -14,6 +14,7 @@ class Body extends StatelessWidget {
     Size size = MediaQuery.of(context).size;
     return Background(
         child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         SizedBox(height: size.height * 0.01),
@@ -67,14 +68,16 @@ class Body extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'Futura', fontSize: 20, color: Color(0xFF4BAFBE)),
             ),
-            onPressed: () {},
+            onPressed: () {
+              print(size.height);
+            },
           ),
         ),
         SizedBox(height: size.height * 0.1),
         Row(
           children: <Widget>[
             Text(
-              'Not Registered yet? ',
+              'Not Registered yet?',
               style: TextStyle(
                   fontFamily: 'Futura', fontSize: 15, color: Colors.white),
             ),
