@@ -1,5 +1,7 @@
 import 'package:ajaib_laundary/Screen/Login/background.dart';
 import 'package:ajaib_laundary/Screen/Login/login.dart';
+import 'package:ajaib_laundary/services/auth.dart';
+import 'package:provider/provider.dart';
 
 import 'login.dart';
 import 'package:flutter/material.dart';
@@ -33,12 +35,15 @@ class Body extends StatelessWidget {
                     borderSide: BorderSide(color: Colors.blue[300]),
                   ),
                   hintStyle: TextStyle(fontFamily: 'Futura')),
-              onChanged: (value) {}),
+              onChanged: (value) {
+                _state.email = value;
+              }),
         ),
         SizedBox(height: size.height * 0.01),
         SizedBox(
           width: 350,
           child: TextField(
+              obscureText: _state.showPass,
               decoration: InputDecoration(
                 hintText: 'password',
                 filled: true,
@@ -52,9 +57,23 @@ class Body extends StatelessWidget {
                   borderSide: BorderSide(color: Colors.blue[300]),
                 ),
                 hintStyle: TextStyle(fontFamily: 'Futura'),
+                prefixIcon: Icons.lock != null ? Icon(Icons.lock) : null,
+                suffixIcon: IconButton(
+                    icon: Icon(_state.showPass
+                        ? Icons.visibility
+                        : Icons.visibility_off),
+                    onPressed: () => _state.showPass = !_state.showPass),
               ),
-              onChanged: (value) {}),
+              onChanged: (value) {
+                _state.password = value;
+              }),
         ),
+        SizedBox(height: size.height * 0.04),
+        _state.showMessage
+            ? SizedBox(height: 10.0)
+            : Center(
+                child: CircularProgressIndicator(),
+              ),
         SizedBox(height: size.height * 0.04),
         Container(
           decoration: BoxDecoration(
@@ -67,7 +86,13 @@ class Body extends StatelessWidget {
               style: TextStyle(
                   fontFamily: 'Futura', fontSize: 20, color: Color(0xFF4BAFBE)),
             ),
-            onPressed: () {},
+            onPressed: () {
+              context.read<AuthServices>().signIn(
+                          email: _state.email, password: _state.password) ==
+                      null
+                  ? Navigator.pushNamed(context, '/list')
+                  : _state.showMessage = false;
+            },
           ),
         ),
         SizedBox(height: size.height * 0.1),
@@ -87,7 +112,9 @@ class Body extends StatelessWidget {
                     color: Colors.white,
                     decoration: TextDecoration.underline),
               ),
-              onPressed: () {},
+              onPressed: () {
+                Navigator.pushNamed(context, '/register');
+              },
             ),
           ],
         )

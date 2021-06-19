@@ -36,7 +36,7 @@ class Background extends StatelessWidget {
                 ),
                 Positioned(top: 250, child: child),
                 Positioned(
-                    top: 150,
+                    top: 180,
                     left: 22,
                     child: Text(
                       'Register',
